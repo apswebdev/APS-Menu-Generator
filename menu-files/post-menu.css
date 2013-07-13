@@ -1,0 +1,28 @@
+/* CSS Document */
+
+body { margin:0px; padding:0px; }
+#menu-cont1{ margin:12px; margin-left:auto; margin-right:auto; width:100%; height:400px; }
+#logo { float:left; width:100%; height:80px; position:relative; }
+#cont { float:left; width:100%; height:630px; overflow:hidden; position:relative; box-shadow:1px 1px 2px 1px #333; }
+.menu_title { clear: both; font-weight: bold; margin: 30px 0px 10px; font-family: "Trebuchet MS"; font-size: 20px; }
+#m-heading { font-family: "Trebuchet MS"; font-size: 20px;color:white; line-height:50px; vertical-align:middle; float:left; width:100%; height:50px; background: #ff2b2e; /* Old browsers */ background: -moz-linear-gradient(top, #ff2b2e 0%, #bf202f 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff2b2e), color-stop(100%, #bf202f)); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, #ff2b2e 0%, #bf202f 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, #ff2b2e 0%, #bf202f 100%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, #ff2b2e 0%, #bf202f 100%); /* IE10+ */ background: linear-gradient(to bottom, #ff2b2e 0%, #bf202f 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2b2e', endColorstr='#bf202f', GradientType=0 ); /* IE6-9 */
+}
+#left-menu { float:left; background:#e9e7e4; width:30%; height:500px; overflow:auto; overflow-x:hidden; font-size:100%; font-family:Verdana, Geneva, sans-serif; }
+.left-rows { float:left; width:100%; height:70px;  border:1px solid #dddcda; line-height:70px; vertical-align:middle; text-align:center; background: #f2f0ed; /* Old browsers */ background: -moz-radial-gradient(center, ellipse cover, #f2f0ed 0%, #e9e7e4 100%); /* FF3.6+ */ background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f2f0ed), color-stop(100%, #e9e7e4)); /* Chrome,Safari4+ */ background: -webkit-radial-gradient(center, ellipse cover, #f2f0ed 0%, #e9e7e4 100%); /* Chrome10+,Safari5.1+ */ background: -o-radial-gradient(center, ellipse cover, #f2f0ed 0%, #e9e7e4 100%); /* Opera 12+ */ background: -ms-radial-gradient(center, ellipse cover, #f2f0ed 0%, #e9e7e4 100%); /* IE10+ */ background: radial-gradient(ellipse at center, #f2f0ed 0%, #e9e7e4 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f0ed', endColorstr='#e9e7e4', GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#right-menu { float:left; position:relative; width:70%; height:500px; }
+#right-cont { position:absolute; background:white; width:115%; height:500px; top:0px; left:-16px; overflow:auto; overflow-x:hidden; }
+#items_dish { float:left; margin:2% 0px 2% 4.5%; min-height:500px; width:91%; } 
+.item_box { float:left; width:110%; margin: 0px 10px 10px -5%; min-height:240px; border-bottom:2px solid #dddcda; font-family:'Century Gothic'; 	}
+.inner_item {float:left; margin:2%; width:96%; height:92%;  }
+.itm_details{clear:none; float:left; margin-left:20px; width:40%;}
+.left-rows:hover{cursor:hand; cursor:pointer; background:beige;}
+.mhead-inner{margin-left: 40px; float:left;}
+.img_cont {width:40%; height:40%; margin:5px; float:left; position:relative; overflow:hidden;}
+.itm_details p{display:block; font-size:14px;}
+.itm_details h3{margin-top:5px;}
+.itm_details div img{cursor:hand; cursor:pointer;}
+.price{position:absolute; top:0px; right:10px; background:url(../images/price.png); width:80px; height:50px; line-height:40px; vertical-align:middle; text-align:center;color:white; font-weight:bold;}
+
+
+

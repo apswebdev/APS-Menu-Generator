@@ -1,0 +1,78 @@
+/* CSS Document */
+
+.menu_div{
+	float;left;
+	width:860px;
+	min-height:210px;
+	padding:20px;
+	border-radius:12px;
+	box-shadow:1px 1px 2px 1px #333;
+	margin-bottom:20px;
+	background: #ececec;
+	position:relative;
+}
+
+.mlist{
+	float:left;
+	width:400px;
+	padding:20px;
+	border-radius:12px;
+    box-shadow:1px 1px 3px 1px #CCC;
+	margin-bottom:20px;
+	margin-right:20px;
+background: #fffff2; /* Old browsers */
+background: -moz-linear-gradient(top, #fffff2 0%, #fffffc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffff2), color-stop(100%,#fffffc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #fffff2 0%,#fffffc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #fffff2 0%,#fffffc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #fffff2 0%,#fffffc 100%); /* IE10+ */
+background: linear-gradient(to bottom, #fffff2 0%,#fffffc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff2', endColorstr='#fffffc',GradientType=0 ); /* IE6-9 */
+}
+
+.mtitle{
+	float:left;
+	width:100%;
+	font-size:20px !important;
+	position:relative;
+}
+
+.mbutton{
+	position:absolute;
+	right:0px;
+	font-size:14px;
+	top:-2px;
+}
+.alist{
+	float:left;
+	clear:both;
+	margin:12px;
+	font-size:14px;
+	margin-bottom:0px;
+}
+.m_act{
+	margin-left:30px;
+	float:left;
+	font-size:10px;
+}
+
+@media screen and (max-width: 1140px){
+.menu_div{
+	float;left;
+	width:400px;
+	min-height:410px;
+	padding-left:10px;
+	border-radius:12px;
+	box-shadow:1px 1px 2px 1px #333;
+	margin-bottom:20px;
+	background: #ececec;
+	position:relative;
+}
+.mlist{
+	padding-left:10px;
+}
+}
+
+
+
+
