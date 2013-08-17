@@ -123,7 +123,7 @@
 				});
 				
 				jQuery("#menu-cont").height(jQuery(window).height()+"px");
-                jQuery("#menu-cont").width(jQuery(window).width()+"px");
+                                jQuery("#menu-cont").width(jQuery(window).width()+"px");
 				jQuery(window).resize(function() {
 					jQuery("#menu-cont").height(jQuery(window).height()+"px");
 					jQuery("#menu-cont").width(jQuery(window).width()+"px");
@@ -173,8 +173,7 @@
 	<div id="cont">
 			<div class="m-heading m-title">
 				<center>Recipes</center>
-                                
-			</div>		
+           		</div>		
 			<div class="m-heading">
 				<div class="mhead-inner">&nbsp;&nbsp;All Categories</div>
                                 <span id="doc_width" style="font-size:20px; font-weight:bold"></span>
@@ -183,25 +182,18 @@
 			<div id="left-menu" <?php if($language == "arabic"){echo 'dir="rtl"';} ?>>
                             <div id="left_cont">    
 				<?php 
-						
-					template_class::get_menu();
-					
+            			    template_class::get_menu();
 				?>					
                             </div>       
 			</div>
 			<div id="right-menu">
-                            
-                <div id="right_cont">    
+                           <div id="right_cont">    
         			<div id="items_dish"<?php if($language == "arabic"){echo 'dir="rtl"';} ?>>
-							
-							<?php 
-								
-								template_class::get_dishes();
-							
-							?>		
-						
-						</div>
-                    </div>  
+                                    <?php 
+                                        template_class::get_dishes();
+                                    ?>		
+				</div>
+                            </div>  
 			</div>
 	</div>
 </div>

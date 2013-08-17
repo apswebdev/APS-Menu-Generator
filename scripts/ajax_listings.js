@@ -11,7 +11,7 @@ function load_cat(){
 				data: { action: "load_menu" },
 				
 				beforeSend: function() {
-                            jQuery("#remark").html('Loading lists...');
+                                    jQuery("#remark").html('Loading lists...');
 				},
 				
 				error: function() {
@@ -69,7 +69,7 @@ function add_cat(){
 				data: { action: "add_category" ,name: jQuery('#category_name').val(), day: days, description: desc },
 				
 				beforeSend: function() {
-                            jQuery("#remarks").html('&nbsp;&nbsp;&nbsp;&nbsp; Adding Category...');
+                                     jQuery("#remarks").html('&nbsp;&nbsp;&nbsp;&nbsp; Adding Category...');
 				},
 				
 				error: function() {
@@ -96,7 +96,7 @@ function add_cat(){
 
 jQuery(document).ready(function(){
 	  
-	  //SET CURSOR POSITION
+                 //SET CURSOR POSITION
 		jQuery.fn.setCursorPosition = function(pos) {
 		  this.each(function(index, elem) {
 			if (elem.setSelectionRange) {

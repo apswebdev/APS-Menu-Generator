@@ -1,6 +1,4 @@
 // JavaScript Document
-
-
 jQuery(document).ready(function(){
 	  
 	jQuery("#save_settings").click(function(){
@@ -48,18 +46,18 @@ jQuery(document).ready(function(){
 						data: { action: "save_setting", pst:_post, typ: _type, lan: _lang, ptype:_ptype },
 						
 						beforeSend: function() {
-									jQuery("#remark").html('Saving...');
+							jQuery("#remark").html('Saving...');
 						},
 						
 						error: function() {
-								 jQuery("#remark").html('<span style="margin-left:20px; color:red">failed.</span>')
-								 .slideDown('slow');
+							 jQuery("#remark").html('<span style="margin-left:20px; color:red">failed.</span>')
+							 .slideDown('slow');
 		
 						},
 						
 						success: function(data) {
-								var htm = '<a href="'+data+'" target="_blank">Click Here for Preview</a>';
-								jQuery("#remark").html(htm);
+							 var htm = '<a href="'+data+'" target="_blank">Click Here for Preview</a>';
+							 jQuery("#remark").html(htm);
 						}
 				});
 		}
