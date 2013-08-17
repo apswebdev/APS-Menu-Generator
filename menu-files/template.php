@@ -1,12 +1,6 @@
 <?php 
 
-/*===================================================================
- *    name   : template_class()
- *    desc   : this is a class for the front end redirection display
- *    parm   : n/a
- *    return : n/a
- *===================================================================*/		
-
+#include_once('../../../../wp-load.php');
 include_once('../wp-load.php');
 
 class template_class
@@ -25,9 +19,9 @@ class template_class
 		protected static $table_name_settings = "menudish_settings";
 		
 		/*===================================================================
-		 *    name   : load_dishes()
-		 *    desc   : this will load all dishes by serve and by day.
-		 *    parm   : $serve - serve type
+		 *    name   : menu_init()
+		 *    desc   : this is initialization process.
+		 *    parm   : n/a
 		 *    return : n/a
 		 *===================================================================*/
 		public static function load_dishes($serve)
@@ -94,8 +88,8 @@ class template_class
 
 		
 		/*===================================================================
-		 *    name   : get_dishes()
-		 *    desc   : this will load all dishes regardless of serve type/day
+		 *    name   : menu_init()
+		 *    desc   : this is initialization process.
 		 *    parm   : n/a
 		 *    return : n/a
 		 *===================================================================*/
@@ -143,7 +137,7 @@ class template_class
 												$typ = explode("=",$typ);
 												$icon = "";
 												if(in_array("1", $typ)){
-													$icon = "<div style='float:".$float.";clear:both;'>";
+													$icon = "<div style='float:".$float.";clear:both; width:150px'>";
 													if($typ[0]=="1"){
 														$icon .= "<img title='New Dish' src='".plugins_url()."/menu-generator/images/new.png' style='margin-left:5px; float:left;'>";
 													}
@@ -178,11 +172,15 @@ class template_class
 																	<div class="img_cont">
 																		<img src = "'.$cl[4].'" style="width:100%; height:auto">
 																		<div class="price">'.$price.'</div>
-																	</div>
+                                                                                                                                        </div>
 																	<div class="itm_details">
 																		<h3>'.strtoupper($cl[0]).'</h3>
 																		'.$icon.'
-																		<p style="clear:both">'.$cl[1].'</p>
+																		<p style="clear:both">'.self::truncate_string($cl[1], 20, " ").'</p>
+																		<div id="title" style="display:none">'.$cl[0].'</div>
+																		<div id="desc" style="display:none">'.$cl[1].'</div>
+																		<div id="price" style="display:none">'.$price.'</div>
+																		<div id="icons" style="display:none">'.strip_tags($icon,'<img>').'</div>
 																	</div>
 																</div>
 															</div>';					
@@ -191,13 +189,26 @@ class template_class
 										}
 									}
 					}
+					echo "<div style='float:left; clear:both; height:150px; width:100%'></div>";
 				}
 				
 		}
-
+                
+                public static function truncate_string($string, $limit, $break=".", $pad="<br/><i>read more..</i>"){
+                     // return with no change if string is shorter than $limit 
+                     if(strlen($string) <= $limit) return $string; // is $break present between $limit and the end of the string? 
+                        
+                     if(false !== ($breakpoint = strpos($string, $break, $limit))) { 
+                            if($breakpoint < strlen($string) - 1) { 
+                                    $string = substr($string, 0, $breakpoint) . $pad; 
+                             } 
+                      } 
+                      return $string; 
+                 }
+                
 		/*===================================================================
-		 *    name   : get_menu()
-		 *    desc   : this will get all the menu category.
+		 *    name   : menu_init()
+		 *    desc   : this is initialization process.
 		 *    parm   : n/a
 		 *    return : n/a
 		 *===================================================================*/
@@ -217,16 +228,17 @@ class template_class
 							echo	'<div class="left-rows" id="menu-'.$val->re_int.'">'.$val->re_title.'</div>';					
 						
 					}
+					echo "<div style='float:left; clear:both; height:150px; width:100%'></div>";
 				}
 				
 		}	
 
 
 		/*===================================================================
-		 *    name   : get_option_setting()
-		 *    desc   : this will get current menu settings
+		 *    name   : menu_init()
+		 *    desc   : this is initialization process.
 		 *    parm   : n/a
-		 *    return : $option - array of option values.
+		 *    return : n/a
 		 *===================================================================*/
 		public static function get_option_setting()
 		{  
