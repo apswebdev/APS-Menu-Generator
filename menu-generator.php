@@ -34,8 +34,8 @@ class menu_class
 		{  
 			
 			# create db upon install 
-		    register_activation_hook(__FILE__, array(__CLASS__, 'Install'));
-            register_deactivation_hook(__FILE__, array(__CLASS__, 'Uninstall'));
+                        register_activation_hook(__FILE__, array(__CLASS__, 'Install'));
+                        register_deactivation_hook(__FILE__, array(__CLASS__, 'Uninstall'));
 			
 			# physical data inputs
 			add_action( 'init',array( __CLASS__, 'menucategory_post_custom') );
@@ -49,7 +49,7 @@ class menu_class
 			add_action( 'restrict_manage_posts', array( __CLASS__,'admin_posts_filter_restrict_manage_posts') );
 			add_filter( 'parse_query', array( __CLASS__,'parse_posts_filter') );
 			
-		    # datasaving
+                        # datasaving
 			add_action( 'save_post',array( __CLASS__,  'save_custom_post') );
 			
 			# ajax Requests
@@ -105,7 +105,7 @@ class menu_class
   				$src = ABSPATH . '/wp-content/plugins/menu-generator/menu-files/';
 				$dst = ABSPATH . '/menu/';
 				$dir = opendir($src); 
-			    @mkdir($dst); 
+                                @mkdir($dst); 
 				while(false !== ( $file = readdir($dir)) ) { 
 						if (( $file != '.' ) && ( $file != '..' )) { 
 							if ( is_dir($src . '/' . $file) ) { 
@@ -197,8 +197,6 @@ class menu_class
 				'has_archive'   => true,
 			);
 			register_post_type( self::$post_type, $args );	
-			
-			
 		}
 		
 		/*===================================================================
@@ -270,7 +268,7 @@ class menu_class
 			#enqueue scripts
 			wp_enqueue_script('js-scripts', plugins_url( '/menu-generator/scripts/ajax_settings.js' ) );
 			wp_register_style("menu-style", plugins_url( '/menu-generator/styles/main.css' ) );
-            wp_enqueue_style( 'menu-style');
+                        wp_enqueue_style( 'menu-style');
 			
 			# listings page properties
 			$opt = self::get_current_options();
@@ -295,7 +293,7 @@ class menu_class
 			#enqueue scripts
 			wp_enqueue_script('js-scripts', plugins_url( '/menu-generator/scripts/ajax_listings.js' ) );
 			wp_register_style("menu-style", plugins_url( '/menu-generator/styles/main.css' ) );
-            wp_enqueue_style( 'menu-style');
+                        wp_enqueue_style( 'menu-style');
 			
 			include_once "include/inclistings.php";
 
@@ -580,7 +578,7 @@ class menu_class
 		 *             $id - WP post id
 		 *    return : n/a
 		 *===================================================================*/
-        public static function manage_post_columns( $column, $post_id ) {
+                 public static function manage_post_columns( $column, $post_id ) {
 			global $post;
 		
 			switch( $column ) {
@@ -616,7 +614,7 @@ class menu_class
 		 *    parm   : $column - WP Column
 		 *    return : $name - column name
 		 *===================================================================*/
-        public static function get_metaname( $column ) {
+                public static function get_metaname( $column ) {
 			
 			global $wpdb;
 			
@@ -818,7 +816,7 @@ class menu_class
 										</div>
 									</div>". PHP_EOL;
 						
-						$sql = "SELECT p . * 
+						                $sql = "SELECT p . * 
 								FROM " . $wpdb->prefix . "posts  p
 								JOIN " . $wpdb->prefix . "postmeta s 
 								ON p.id = s.post_id
@@ -1026,7 +1024,7 @@ class menu_class
 					}
 				}
 
-	 }	
+	        }	
 
 
 		/*===================================================================
@@ -1321,7 +1319,7 @@ class menu_class
 			</div>
 		</div>';			
 			
-			return $htm;
+		return $htm;
 	
 		}			
 		
