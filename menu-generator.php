@@ -231,7 +231,7 @@ class menu_class
 							 'Settings', 
 							 self::$capability,
 							 'menu_settings',
-					    	 array( __CLASS__, 'menu_generator_settings'));
+                                                         array( __CLASS__, 'menu_generator_settings'));
 		
 		}
 
@@ -250,7 +250,7 @@ class menu_class
 							 'Menu Listing', 
 							 self::$capability,
 							 'menu_listings',
-					    	 array( __CLASS__, 'menu_generator_listing'));
+					    	         array( __CLASS__, 'menu_generator_listing'));
 		
 		}		
 
@@ -647,13 +647,14 @@ class menu_class
 				global $wpdb;
 				
 				if(!defined('DOING_AJAX')){
-            			wp_redirect (site_url());
-                } else {
-						$self = self::sanitize($_POST['name']);
-						$day = self::sanitize($_POST['day']);
-						$desc = self::sanitize($_POST['description']);
-						$wpdb->query($wpdb->prepare( "INSERT INTO ".$wpdb->prefix.self::$table_name ." VALUES (%d, %s, %s, %s)", null, $self,$day,$desc ));
-						die();
+                                        wp_redirect (site_url());
+                                        exit;
+                                } else {
+                                        $self = self::sanitize($_POST['name']);
+                                        $day = self::sanitize($_POST['day']);
+                                        $desc = self::sanitize($_POST['description']);
+                                        $wpdb->query($wpdb->prepare( "INSERT INTO ".$wpdb->prefix.self::$table_name ." VALUES (%d, %s, %s, %s)", null, $self,$day,$desc ));
+                                        die();
 				}
 		
 		}
@@ -669,10 +670,11 @@ class menu_class
 				global $wpdb;
 				
 				if(!defined('DOING_AJAX')){
-            			wp_redirect (site_url());
-                } else {
-						echo self::load_listings();
-						die();
+                                    wp_redirect (site_url());
+                                    exit;
+                                } else {
+				    echo self::load_listings();
+				    die();
 				}
 		
 		}	
@@ -688,12 +690,13 @@ class menu_class
 				global $wpdb;
 				
 				if(!defined('DOING_AJAX')){
-            			wp_redirect (site_url());
-                } else {
-						$id = $_POST['id'];
-						$list = $wpdb->query("DELETE FROM " . $wpdb->prefix.self::$table_name. " WHERE re_int = ".$id );
-						echo "success";
-						die();
+                                    wp_redirect (site_url());
+                                    exit;
+                                } else {
+				    $id = $_POST['id'];
+				    $list = $wpdb->query("DELETE FROM " . $wpdb->prefix.self::$table_name. " WHERE re_int = ".$id );
+				    echo "success";
+				    die();
 				}
 		
 		}	
@@ -709,15 +712,16 @@ class menu_class
 				global $wpdb;
 				
 				if(!defined('DOING_AJAX')){
-            			wp_redirect (site_url());
-                } else {
-						$id = $_POST['id'];
-						$name = self::sanitize($_POST['name']);
-						$day = self::sanitize($_POST['day']);
-						$desc = self::sanitize($_POST['desc']);
-						$list = $wpdb->query($wpdb->prepare("UPDATE " . $wpdb->prefix.self::$table_name. " SET re_title = %s, re_day = %s, re_desc = %s WHERE re_int = ".$id,$name,$day,$desc ));
-						echo "success";
-						die();
+                                    wp_redirect (site_url());
+                                    exit;
+                                } else {
+                                    $id = $_POST['id'];
+                                    $name = self::sanitize($_POST['name']);
+                                    $day = self::sanitize($_POST['day']);
+                                    $desc = self::sanitize($_POST['desc']);
+                                    $list = $wpdb->query($wpdb->prepare("UPDATE " . $wpdb->prefix.self::$table_name. " SET re_title = %s, re_day = %s, re_desc = %s WHERE re_int = ".$id,$name,$day,$desc ));
+                                    echo "success";
+                                    die();
 				}
 		
 		}			
@@ -734,30 +738,31 @@ class menu_class
 				global $wpdb;
 				
 				if(!defined('DOING_AJAX')){
-            			wp_redirect (site_url());
-                } else {
-						$postid = self::sanitize($_POST['pst']);
-						$type = self::sanitize($_POST['typ']);
-						$lang = self::sanitize($_POST['lan']);
-						$ptype = self::sanitize($_POST['ptype']);
-						
-						$select = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix.self::$table_name_settings);
-					
-						if(!empty($select)){
-							$id=null;
-							foreach($select as $key => $val){
-								$id = $val->rs_int;
-							}
-							if($id != null){
-						 		$wpdb->query($wpdb->prepare("UPDATE " . $wpdb->prefix.self::$table_name_settings. " SET rs_postid = %s, rs_lang = %s, rs_type = %s, rs_posttype = %s WHERE rs_int = %d",$postid,$lang,$type,$ptype,$id ));
-							}
-						
-						} else {
-							$wpdb->query($wpdb->prepare( "INSERT INTO ".$wpdb->prefix.self::$table_name_settings ." VALUES (%d, %s, %s, %s, %s)", null, $postid,$ptype,$lang,$type ));
-						}
-						 
-						echo get_permalink($postid);
-						die();
+                                    wp_redirect (site_url());
+                                    exit;
+                                } else {
+                                    $postid = self::sanitize($_POST['pst']);
+                                    $type = self::sanitize($_POST['typ']);
+                                    $lang = self::sanitize($_POST['lan']);
+                                    $ptype = self::sanitize($_POST['ptype']);
+
+                                    $select = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix.self::$table_name_settings);
+
+                                    if(!empty($select)){
+                                            $id=null;
+                                            foreach($select as $key => $val){
+                                                    $id = $val->rs_int;
+                                            }
+                                            if($id != null){
+                                                    $wpdb->query($wpdb->prepare("UPDATE " . $wpdb->prefix.self::$table_name_settings. " SET rs_postid = %s, rs_lang = %s, rs_type = %s, rs_posttype = %s WHERE rs_int = %d",$postid,$lang,$type,$ptype,$id ));
+                                            }
+
+                                    } else {
+                                            $wpdb->query($wpdb->prepare( "INSERT INTO ".$wpdb->prefix.self::$table_name_settings ." VALUES (%d, %s, %s, %s, %s)", null, $postid,$ptype,$lang,$type ));
+                                    }
+
+                                    echo get_permalink($postid);
+                                    die();
 				}
 		
 		}						
@@ -955,16 +960,16 @@ class menu_class
 			if($type != $ptype){$dis = "disabled";}
 			
 			$sql = "SELECT * 
-					FROM " . $wpdb->prefix . "posts 
-					WHERE ".$cond." AND post_status =  'publish'
-					ORDER BY post_title ASC;";			
+                                FROM " . $wpdb->prefix . "posts 
+                                WHERE ".$cond." AND post_status =  'publish'
+                                ORDER BY post_title ASC;";			
 						
 			$post_all = $wpdb->get_results($sql);
 			$html = "";			
 			if(!empty($post_all)){
 					
 					$ctr = 1;
-				    $html = '<select id="'.$id.'" style="width:280px;" '.$dis.'>';
+                                        $html = '<select id="'.$id.'" style="width:280px;" '.$dis.'>';
 					foreach($post_all as $key => $val){ 
 							$sel = "";
 							if($type == $ptype && $pid == $val->ID){$sel = "selected";}
@@ -1078,7 +1083,7 @@ class menu_class
 					
 					foreach($dish_list as $key => $val){
 																	
-							$htm .=	'<div class="left-rows" id="menu-'.$val->re_int.'">'.$val->re_title.'</div>';					
+						$htm .=	'<div class="left-rows" id="menu-'.$val->re_int.'">'.$val->re_title.'</div>';					
 						
 					}
 				}
@@ -1110,7 +1115,7 @@ class menu_class
 					
 					foreach($dish_list as $key => $val){
 						
-								$sql = "SELECT p . * 
+                                                                        $sql = "SELECT p . * 
 										FROM " . $wpdb->prefix . "posts  p
 										JOIN " . $wpdb->prefix . "postmeta s 
 										ON p.id = s.post_id
@@ -1121,18 +1126,18 @@ class menu_class
 										AND p.post_status =  'publish'
 										ORDER BY s.meta_key ASC;";			
 								
-								$custpost = $wpdb->get_results($sql);
+                                                                        $custpost = $wpdb->get_results($sql);
 								
 									if(!empty($custpost)){	
 										foreach($custpost as $key2 => $val2){
 
 												$cl = 	$val2->post_title . "===" . 
-																	$val2->post_content . "===" .
-																	$val->re_int . "===" .
-																	get_permalink($val2->ID)  . "===" . 
-																	wp_get_attachment_url( get_post_thumbnail_id($val2->ID)) . "===" .
-																	get_post_meta( $val2->ID, 'post_dishprice', true ) . "===" .
-																	get_post_meta( $val2->ID, 'post_dishprice2', true ) ;
+                                                                                                $val2->post_content . "===" .
+                                                                                                $val->re_int . "===" .
+                                                                                                get_permalink($val2->ID)  . "===" . 
+                                                                                                wp_get_attachment_url( get_post_thumbnail_id($val2->ID)) . "===" .
+                                                                                                get_post_meta( $val2->ID, 'post_dishprice', true ) . "===" .
+                                                                                                get_post_meta( $val2->ID, 'post_dishprice2', true ) ;
 												
 												$typ = get_post_meta( $val2->ID, 'post_dishtype', true );
 												
